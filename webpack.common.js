@@ -13,7 +13,12 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.jsx'],
-    alias: {},
+    alias: {
+      Common: path.resolve(__dirname, 'src/components/common'),
+      Pages: path.resolve(__dirname, 'src/components/Pages'),
+      Utilities: path.resolve(__dirname, 'src/Utilities'),
+      Constants: path.resolve(__dirname, 'src/components/constants'),
+    },
   },
   module: {
     rules: [

@@ -28,5 +28,12 @@
     "rules": {
         "import/no-extraneous-dependencies" : ["error", {"devDependencies": true}],
         "react/jsx-filename-extension": "off"
+    },
+    "settings": {
+        "import/resolver": {
+            "webpack": {
+                "config": "webpack.common.js"
+            }
+        }
     }
 }
