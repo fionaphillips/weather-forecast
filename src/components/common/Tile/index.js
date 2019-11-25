@@ -1,10 +1,12 @@
 import React from 'react';
+import { PropTypes as PT } from 'prop-types';
+
 import StyledTile from './styled';
 
-const Tile = () => {
+const Tile = ({ title }) => {
   return (
     <StyledTile>
-      <div className="day">Day</div>
+      <div className="day">{title}</div>
       <div className="image">Image</div>
       <div className="max-min-temps">
         <div className="max">Max</div>
@@ -12,6 +14,10 @@ const Tile = () => {
       </div>
     </StyledTile>
   );
+};
+
+Tile.propTypes = {
+  title: PT.string.isRequired,
 };
 
 export default Tile;
