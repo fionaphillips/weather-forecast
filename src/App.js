@@ -1,11 +1,11 @@
 import React from 'react';
 import { hot } from 'react-hot-loader/root';
 
-import Tile from 'Common';
+import WeatherForecast from 'Pages';
 
 const App = () => (
   <div>
-    <Tile />
+    <WeatherForecast />
   </div>
 );
 
