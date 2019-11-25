@@ -13,7 +13,9 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.jsx'],
-    alias: {},
+    alias: {
+      Common: path.resolve(__dirname, 'src/components/common'),
+    },
   },
   module: {
     rules: [
