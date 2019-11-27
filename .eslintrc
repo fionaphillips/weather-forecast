@@ -27,7 +27,10 @@
     ],
     "rules": {
         "import/no-extraneous-dependencies" : ["error", {"devDependencies": true}],
-        "react/jsx-filename-extension": "off"
+        "react/jsx-filename-extension": "off",
+        "prefer-spread": "off",
+        "react/state-in-constructor": "off"
+
     },
     "settings": {
         "import/resolver": {

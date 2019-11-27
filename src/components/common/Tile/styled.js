@@ -11,9 +11,14 @@ const StyledTile = styled.div`
   margin: 20px;
   width: 250px;
 
+  .day {
+    margin: 10px;
+  }
+
   .max,
   .min {
     display: inline-block;
+    margin: 10px;
   }
 `;
 
