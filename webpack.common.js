@@ -19,6 +19,8 @@ module.exports = {
       Utilities: path.resolve(__dirname, 'src/Utilities'),
       Constants: path.resolve(__dirname, 'src/components/constants'),
       Services: path.resolve(__dirname, 'src/Services'),
+      Reducers: path.resolve(__dirname, 'src/store/reducers'),
+      Actions: path.resolve(__dirname, 'src/store/actions'),
     },
   },
   module: {

@@ -1,29 +1,46 @@
 import React from 'react';
-import Tile from 'Common';
+import { Tile, Input } from 'Common';
 import transformWeatherData from 'Utilities/transform-weather-data';
 import fetchWeather from 'Services';
+import { getCity } from 'Reducers/selected-city';
+import { connect } from 'react-redux';
 
 import StyledWeatherForecast from './styled';
 
 class WeatherForecast extends React.Component {
-  state = { days: [] };
+  state = { days: [], city: '' };
 
-  componentDidMount() {
-    fetchWeather().then(x => this.setState({ days: transformWeatherData(x) }));
+  componentDidUpdate(prevProps) {
+    const { city } = this.props;
+
+    if (prevProps.city !== city) {
+      this.setState({ city });
+
+      fetchWeather(city.city).then(x => this.setState({ days: transformWeatherData(x) }));
+    }
   }
 
   render() {
-    const { days } = this.state;
+    const { days, city } = this.state;
     const decoratedTile = days.map(x => (
       <Tile key={x.id} title={x.label} min={x.minTemp} max={x.maxTemp} icon={x.icon[0]} />
     ));
+
     return (
       <StyledWeatherForecast>
-        <h1>Forecast for London</h1>
-        {decoratedTile}
+        {!city && <Input />}
+        {city && <h1>Forecast for {city.city}</h1>}
+        {city && decoratedTile}
       </StyledWeatherForecast>
     );
   }
 }
 
-export default WeatherForecast;
+const mapStateToProps = state => {
+  console.log('state: ', state);
+  return {
+    city: getCity(state.CITY),
+  };
+};
+
+export default connect(mapStateToProps)(WeatherForecast);

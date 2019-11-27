@@ -5,6 +5,7 @@ import StyledTile from './styled';
 
 const Tile = ({ title, min, max, icon }) => {
   const iconUrl = iconCode => `http://openweathermap.org/img/w/${iconCode}.png`;
+  console.log('tile');
   return (
     <StyledTile>
       <div className="day">{title}</div>
