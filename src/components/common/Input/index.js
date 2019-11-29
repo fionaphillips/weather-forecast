@@ -1,10 +1,9 @@
 import React from 'react';
 import InputForm from './form';
-// import container from './container';
 import StyledInput from './styled';
 
+/* eslint-disable jsx-a11y/label-has-associated-control */
 const Input = () => {
-  console.log('foo');
   return (
     <StyledInput>
       <label htmlFor="input-form">Enter city name</label>
@@ -14,3 +13,4 @@ const Input = () => {
 };
 
 export default Input;
+/* eslint-enable jsx-a11y/label-has-associated-control */

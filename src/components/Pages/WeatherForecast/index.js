@@ -1,4 +1,5 @@
 import React from 'react';
+import { PropTypes as PT } from 'prop-types';
 import { Tile, Input } from 'Common';
 import transformWeatherData from 'Utilities/transform-weather-data';
 import fetchWeather from 'Services';
@@ -8,6 +9,12 @@ import { connect } from 'react-redux';
 import StyledWeatherForecast from './styled';
 
 class WeatherForecast extends React.Component {
+  static propTypes = {
+    city: PT.shape({
+      city: PT.string.isRequired,
+    }),
+  };
+
   state = { days: [], city: '' };
 
   componentDidUpdate(prevProps) {
@@ -37,7 +44,6 @@ class WeatherForecast extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log('state: ', state);
   return {
     city: getCity(state.CITY),
   };

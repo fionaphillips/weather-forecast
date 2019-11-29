@@ -29,7 +29,10 @@
         "import/no-extraneous-dependencies" : ["error", {"devDependencies": true}],
         "react/jsx-filename-extension": "off",
         "prefer-spread": "off",
-        "react/state-in-constructor": "off"
+        "react/state-in-constructor": "off",
+        "react/static-property-placement": "off",
+        "react/no-did-update-set-state": "off",
+        "react/require-default-props": "off"
 
     },
     "settings": {
