@@ -37,6 +37,7 @@ const getAverageTemps = x => {
 const transformWeatherData = fiveDays => {
   const weatherData = [];
   fiveDays.list.map(day => {
+    console.log('day: ', day);
     return weatherData.push({
       id: day.dt,
       day: dayjs(day.dt_txt).format('dddd'),

@@ -9,6 +9,13 @@ const StyledWeatherForecast = styled.div`
   .tiles {
     background-color: #eee;
   }
+
+  svg {
+    width: 70%;
+    path {
+      max-width: 145px;
+    }
+  }
 `;
 
 export default StyledWeatherForecast;
