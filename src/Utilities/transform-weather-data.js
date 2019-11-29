@@ -10,7 +10,6 @@ const getAverageTemps = x => {
   const transformedFiveDays = [];
   getNextFiveDays().map(day => {
     const splitData = _.filter(x, ['day', day.label]);
-    console.log('splitData: ', splitData);
     return transformedFiveDays.push(
       Object.assign(
         day,
@@ -37,14 +36,13 @@ const getAverageTemps = x => {
 
 const transformWeatherData = fiveDays => {
   const weatherData = [];
-  console.log('fiveDays: ', fiveDays);
   fiveDays.list.map(day => {
     return weatherData.push({
       id: day.dt,
       day: dayjs(day.dt_txt).format('dddd'),
       minTemp: convertKelvinToCelsius(day.main.temp_min),
       maxTemp: convertKelvinToCelsius(day.main.temp_max),
-      icon: day.weather.map(x => x.icon),
+      icon: day.weather.map(x => x.id),
     });
   });
 

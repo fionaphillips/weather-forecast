@@ -5,7 +5,7 @@ import StyledTile from './styled';
 
 const Tile = ({ title, min, max, icon }) => {
   const iconUrl = iconCode => `http://openweathermap.org/img/w/${iconCode}.png`;
-  console.log('tile');
+
   return (
     <StyledTile>
       <div className="day">{title}</div>
@@ -22,7 +22,7 @@ Tile.propTypes = {
   title: PT.string.isRequired,
   min: PT.number.isRequired,
   max: PT.number.isRequired,
-  icon: PT.array.isRequired,
+  icon: PT.arrayOf.isRequired,
 };
 
 export default Tile;
