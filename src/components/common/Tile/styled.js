@@ -10,15 +10,23 @@ const StyledTile = styled.div`
   justify-content: space-between;
   margin: 20px;
   width: 250px;
+  background-color: #fafafa;
 
   .day {
     margin: 10px;
+    font-size: 20px;
   }
 
   .max,
   .min {
     display: inline-block;
     margin: 10px;
+  }
+
+  .max,
+  .min,
+  .day {
+    font-family: sans-serif;
   }
 `;
 

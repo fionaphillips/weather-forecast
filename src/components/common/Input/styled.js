@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
 const StyledInput = styled.div`
+  height: 500px;
+  background-color: #eee;
+  padding: 20px;
+
   input {
     border-radius: 5px;
     font-size: 20px;
@@ -18,10 +22,7 @@ const StyledInput = styled.div`
 
   label {
     font-weight: bold;
-  }
-
-  div {
-    color: red;
+    font-family: sans-serif;
   }
 `;
 

@@ -1,14 +1,20 @@
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { PropTypes as PT } from 'prop-types';
 import { connect } from 'react-redux';
 
 import handleCity from 'Actions';
 
 class InputForm extends React.Component {
+  static propTypes = {
+    selectedCity: PT.func.isRequired,
+  };
+
   handleSubmit = values => {
     const { selectedCity } = this.props;
     selectedCity(values);
   };
+
   render() {
     return (
       <Formik
