@@ -42,7 +42,7 @@ const transformWeatherData = fiveDays => {
       day: dayjs(day.dt_txt).format('dddd'),
       minTemp: convertKelvinToCelsius(day.main.temp_min),
       maxTemp: convertKelvinToCelsius(day.main.temp_max),
-      icon: day.weather.map(x => x.icon),
+      icon: day.weather.map(x => x.id),
     });
   });
 

@@ -1,52 +1,35 @@
 import React from 'react';
 import { PropTypes as PT } from 'prop-types';
-import { Tile, Input } from 'Common';
-import transformWeatherData from 'Utilities/transform-weather-data';
-import fetchWeather from 'Services';
-import { getCity } from 'Reducers/selected-city';
-import { connect } from 'react-redux';
+import { Input, Tile } from 'Common';
+import container from './container';
 
 import StyledWeatherForecast from './styled';
 
-class WeatherForecast extends React.Component {
-  static propTypes = {
-    city: PT.shape({
-      city: PT.string.isRequired,
-    }),
-  };
+const WeatherForecast = ({ city, days }) => {
+  const decoratedTile = days.map(x => {
+    return <Tile key={x.id} title={x.label} min={x.minTemp} max={x.maxTemp} icon={x.icon[0]} />;
+  });
 
-  state = { days: [], city: '' };
-
-  componentDidUpdate(prevProps) {
-    const { city } = this.props;
-
-    if (prevProps.city !== city) {
-      this.setState({ city });
-
-      fetchWeather(city.city).then(x => this.setState({ days: transformWeatherData(x) }));
-    }
-  }
-
-  render() {
-    const { days, city } = this.state;
-    const decoratedTile = days.map(x => (
-      <Tile key={x.id} title={x.label} min={x.minTemp} max={x.maxTemp} icon={x.icon[0]} />
-    ));
-
-    return (
-      <StyledWeatherForecast>
-        {!city && <Input />}
-        {city && <h1>Forecast for {city.city}</h1>}
-        {city && decoratedTile}
-      </StyledWeatherForecast>
-    );
-  }
-}
-
-const mapStateToProps = state => {
-  return {
-    city: getCity(state.CITY),
-  };
+  return (
+    <StyledWeatherForecast>
+      {!city && <Input />}
+      {city && <h1>Forecast for {city.city}</h1>}
+      {city && decoratedTile}
+    </StyledWeatherForecast>
+  );
 };
 
-export default connect(mapStateToProps)(WeatherForecast);
+export default container(WeatherForecast);
+
+WeatherForecast.propTypes = {
+  city: PT.shape({
+    city: PT.string.isRequired,
+  }),
+  days: PT.shape({
+    id: PT.number.isRequired,
+    label: PT.string.isRequired,
+    minTemp: PT.number.isRequired,
+    maxTemp: PT.number.isRequired,
+    icon: PT.arrayOf(PT.numbers).isRequired,
+  }),
+};
