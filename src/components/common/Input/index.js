@@ -6,6 +6,7 @@ import StyledInput from './styled';
 const Input = () => {
   return (
     <StyledInput>
+      <h1>Five Day Forecast</h1>
       <label htmlFor="input-form">Enter city name</label>
       <InputForm id="input-form" />
     </StyledInput>

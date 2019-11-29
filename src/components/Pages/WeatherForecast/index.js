@@ -14,7 +14,7 @@ const WeatherForecast = ({ city, days }) => {
     <StyledWeatherForecast>
       {!city && <Input />}
       {city && <h1>Forecast for {city.city}</h1>}
-      {city && decoratedTile}
+      <div className="tiles">{city && decoratedTile}</div>
     </StyledWeatherForecast>
   );
 };
