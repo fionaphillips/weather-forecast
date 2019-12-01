@@ -8,7 +8,7 @@ const Tile = ({ title, min, max, icon }) => {
   return (
     <StyledTile>
       <div className="day">{title}</div>
-      {transformIcons(icon)}
+      {transformIcons(icon || 0)}
       <div className="max-min-temps">
         <div className="max">Max: {max} </div>
         <div className="min">Min: {min}</div>
