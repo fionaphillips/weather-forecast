@@ -2,7 +2,7 @@ import dayjs from 'dayjs';
 import _ from 'lodash';
 import getNextFiveDays from './next-five-days';
 
-const convertKelvinToCelsius = x => {
+export const convertKelvinToCelsius = x => {
   return Math.round(x - 273.15);
 };
 
