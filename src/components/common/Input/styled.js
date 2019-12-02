@@ -1,9 +1,13 @@
 import styled from 'styled-components';
+import { device } from 'Themes';
 
 const StyledInput = styled.div`
   height: 500px;
-  background-color: #eee;
   padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 
   input {
     border-radius: 5px;
@@ -23,6 +27,10 @@ const StyledInput = styled.div`
   label {
     font-weight: bold;
     font-family: sans-serif;
+  }
+
+  @media ${device.tabletS} {
+    min-width: 360px;
   }
 `;
 

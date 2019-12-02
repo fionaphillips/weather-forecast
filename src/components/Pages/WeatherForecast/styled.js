@@ -7,7 +7,7 @@ const StyledWeatherForecast = styled.div`
   }
 
   .tiles {
-    background-color: #eee;
+    opacity: 0.5;
   }
 
   svg {

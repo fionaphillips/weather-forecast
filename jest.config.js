@@ -1,5 +1,5 @@
 module.exports = {
-  moduleFileExtensions: ['js', 'jsx'],
+  moduleFileExtensions: ['js', 'jsx', 'jpg'],
   transform: {
     '^.+\\.(js|jsx)?$': 'babel-jest',
   },
@@ -10,17 +10,10 @@ module.exports = {
     '^SetupTests(.*)$': '<rootDir>/src/setupTests',
     '^Actions(.*)$': '<rootDir>/src/store/actions',
     '^Constants(.*)$': '<rootDir>/src/components/constants',
+    '^Themes(.*)$': '<rootDir>/src/styled',
+    '\\.(jpg)$': '<rootDir>/assetsTransformer.js',
+    '\\.(css|less)$': '<rootDir>/assetsTransformer.js',
   },
   testMatch: ['<rootDir>/src/__tests__/**/*.js?(x)'],
   transformIgnorePatterns: ['<rootDir>/node_modules/'],
 };
-
-/* 
-        Common: path.resolve(__dirname, 'src/components/common'),
-      Pages: path.resolve(__dirname, 'src/components/Pages'),
-      Utilities: path.resolve(__dirname, 'src/Utilities'),
-      Constants: path.resolve(__dirname, 'src/components/constants'),
-      Services: path.resolve(__dirname, 'src/Services'),
-      Reducers: path.resolve(__dirname, 'src/store/reducers'),
-      Actions: path.resolve(__dirname, 'src/store/actions'),
-  */
