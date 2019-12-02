@@ -2,7 +2,7 @@ import DAYS_OF_WEEK from 'Constants';
 import dayjs from 'dayjs';
 
 const getNextFiveDays = () => {
-  const currentDay = dayjs().day() - 1;
+  const currentDay = dayjs().day();
   const fifthDay = currentDay + 5;
   let newArray = [];
 

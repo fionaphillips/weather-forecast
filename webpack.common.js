@@ -21,6 +21,8 @@ module.exports = {
       Services: path.resolve(__dirname, 'src/Services'),
       Reducers: path.resolve(__dirname, 'src/store/reducers'),
       Actions: path.resolve(__dirname, 'src/store/actions'),
+      Images: path.resolve(__dirname, 'images'),
+      Themes: path.resolve(__dirname, 'src/styled'),
     },
   },
   module: {
@@ -41,6 +43,10 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         loader: 'eslint-loader',
+      },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: ['file-loader'],
       },
       {
         test: /\.html$/,

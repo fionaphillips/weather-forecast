@@ -1,19 +1,16 @@
 import React from 'react';
 import { WeatherCloudy, WeatherShower, WeatherSnow } from 'styled-icons/typicons';
 import { CloudOff } from 'styled-icons/material';
+import { RAIN, SNOW, CLEAR_DAY, CLOUDY } from './constants';
 
 const transformIcons = icon => {
-  // light rain
-  if (icon[0] >= 500 && icon[0] <= 501) {
+  if (RAIN(icon[0])) {
     return <WeatherShower />;
-    // snow
-  } else if (icon[0] >= 600 && icon[0] <= 601) {
+  } else if (SNOW(icon[0])) {
     return <WeatherSnow />;
-    // clear sky
-  } else if (icon[0] === 800) {
+  } else if (CLEAR_DAY(icon[0])) {
     return <CloudOff />;
-    // cloudy
-  } else if (icon[0] >= 801 && icon[0] <= 804) {
+  } else if (CLOUDY(icon[0])) {
     return <WeatherCloudy />;
   }
 
